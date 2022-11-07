@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency conversion</title>
+    <style>
+        .form{
+            display: flex;
+            gap: 30px
+        }
+        span {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section class="form">
+        <div>
+            <label>Amount</label><br>
+            <input  type="text" id="amount">
+        </div>
+        <div>
+            <label>From Currency</label><br>
+            <select id="from">
+                <option value="VietNam">VietNam</option>
+                <option value="USA">USA</option>
+            </select>
+        </div>
+        <div>
+            <label>To Currency</label><br>
+            <select id="to" >
+                <option value="USA">USA</option>
+                <option value="VietNam">VietNam</option>
+            </select>
+        </div>
+        <input type="submit" value="Convert" id="convert">
+        <p id="result"></p>
+    </section>
+<script>
+    const changeMoney = function (){
+        let amount = Number(document.getElementById("amount").value);
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let result;
+        if (from=="VietNam" && to=="USA") {
+            result = (amount /24)+"$";
+            document.getElementById('result').innerHTML=(`Result: ${result}`)}
+        else if (from=="USA" && to=="VietNam"){
+            result= (amount *24) + "VND";
+            document.getElementById('result').innerHTML=(`Result: ${result}`)
+        } else document.getElementById('result').innerHTML=(`Please choose other seclect`)
+    }
+    convert.addEventListener("click",changeMoney)
+
+</script>
+</body>
+</html>
